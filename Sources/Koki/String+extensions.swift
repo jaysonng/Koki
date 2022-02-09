@@ -6,14 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 public protocol Loadable {
     var state: KokiState { get set }
 }
 
 typealias ViewState = KokiState
+
 public enum KokiState: String, CustomStringConvertible {
     case isIdle
+    case isLoading
     case isLoaded
     case errorLoading
     case reloadView
@@ -21,9 +24,24 @@ public enum KokiState: String, CustomStringConvertible {
     public var description: String {
         switch self {
         case .isIdle                : return "View is idle."
-        case .isLoaded              : return "View is done loading view."
+        case .isLoading             : return "View is loading."
+        case .isLoaded              : return "View is done loading."
         case .errorLoading          : return "Something went wrong loading the view."
         case .reloadView            : return "Reloading the view..."
+        }
+    }
+    
+    public var isLoading: Bool {
+        get {
+            switch self {
+            case .isLoading:
+                return true
+            default:
+                return false
+            }
+        }
+        set {
+            self = newValue ? .isLoading : .isLoaded
         }
     }
 }
