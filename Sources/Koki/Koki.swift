@@ -11,11 +11,11 @@ typealias ViewState = KokiState
 
 public struct Koki { }
 
+@MainActor
 public protocol ViewLoadable {
     var state: KokiState { get set }
 }
 
-@MainActor
 public enum KokiState: String, CustomStringConvertible {
     
     case isIdle
