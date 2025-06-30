@@ -15,6 +15,7 @@ public protocol ViewLoadable {
     var state: KokiState { get set }
 }
 
+@MainActor
 public enum KokiState: String, CustomStringConvertible {
     
     case isIdle
