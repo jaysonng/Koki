@@ -34,17 +34,4 @@ public enum KokiState: String, CustomStringConvertible {
         }
     }
     
-//    public var isLoading: Bool {
-//        get {
-//            switch self {
-//            case .isLoading, .isIdle:
-//                return true
-//            default:
-//                return false
-//            }
-//        }
-//        set {
-//            self = newValue ? .isLoading : .isLoaded
-//        }
-//    }
 }
